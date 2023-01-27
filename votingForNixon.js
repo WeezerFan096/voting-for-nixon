@@ -53,3 +53,28 @@ function undoBoom(){
     removeElm3.remove();
     alert('Too bad, I dont care')
 }
+document.addEventListener('contextmenu', function(e) {
+    alert('Stop trying to investigate');
+    });
+field.onclick = function(event){SVGAElement
+let fieldCoords = this.getBoundingClientRect();
+let ballCoords = {
+    top: event.clientY - fieldCoords.top - field.clientTop - ball.clientHeight / 2 - 10, 
+    left: event.clientX - fieldCoords.left - field.clientLeft - ball.clientWidth / 2 - 7
+}
+if(ballCoords.top < 0){ballCoords.top =0}
+if(ballCoords.left < 0){ballCoords.left =0}
+if(ballCoords.top + ball.clientHeight > field.clientHeight){ballCoords.top = field.clientHeight - ball.clientHeight}
+if(ballCoords.left + ball.clientWidth > field.clientHeight){ballCoords.left = field.clientWidth - ball.clientWidth}
+ball.style.left = ballCoords.left + 'px'
+ball.style.top = ballCoords.top + 'px'
+}
+let mathArray = ["item", "item"]
+let parent = document.querySelector('#field');
+function crateBoom(){
+    for (let i = 1; i <= 9; i++) {
+        let p = document.createElement('p')
+        p.textContent = 'Vote For Nixon!!!!';
+        parent.appendChild(p);
+    }
+};
