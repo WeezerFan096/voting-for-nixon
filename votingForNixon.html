@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="votingForNixon.css" /> 
+    <title>Voting</title>
+</head>
+<script src="votingForNixon.js"></script>
+<body onload="loadEvent()">
+    <div id="field">
+        <center>
+            <img class="ban" src="./banner.jpg">
+            <center><h1>Who do you want to vote for?</h1></center>
+            <h2>Richard M. Nixon</h2>
+            <button class="nix" id="nix" onclick="openWin()">I vote for Nixon!</button>
+            <br>
+            <br>
+            <img id="nixPic" src="./nix.jpg" onmouseover="bigPic(this)" onmouseout="regPic(this)">
+            <h2 id="jfkText">John F. Kennedy</h2>
+            <button class="jfk" id="jfk" onclick="openWin2()">I vote for Kennedy!</button>
+            <br>
+            <br>
+            <img id="jfkPic" src="./jfk.jpg" onmouseover="bigPic2(this)" onmouseout="regPic2(this)">
+            <br>
+            <button class="button" onclick="crateBoom()">Click Me!</button>
+            <button class="button" onclick="undoBoom()">I really don't want to vote for Nixon</button>
+            <img class="hiddenImage" id="hiddenImage" src="./anti.jpg">
+            <img class="hiddenImage" id="hiddenImage" src="./noNix.jpg">
+            <img class="ban" src="./banner.jpg">
+        </center>
+        <img src="./eagSmol.jpg" id="ball">
+    
+  </div>
+
+</body>
+<script>
+    document.addEventListener('contextmenu', function(e) {
+        alert('Stop trying to investigate');
+        });
+    field.onclick = function(event){SVGAElement
+    let fieldCoords = this.getBoundingClientRect();
+    let ballCoords = {
+        top: event.clientY - fieldCoords.top - field.clientTop - ball.clientHeight / 2 - 10, 
+        left: event.clientX - fieldCoords.left - field.clientLeft - ball.clientWidth / 2 - 7
+    }
+    if(ballCoords.top < 0){ballCoords.top =0}
+    if(ballCoords.left < 0){ballCoords.left =0}
+    if(ballCoords.top + ball.clientHeight > field.clientHeight){ballCoords.top = field.clientHeight - ball.clientHeight}
+    if(ballCoords.left + ball.clientWidth > field.clientHeight){ballCoords.left = field.clientWidth - ball.clientWidth}
+    ball.style.left = ballCoords.left + 'px'
+    ball.style.top = ballCoords.top + 'px'
+    }
+    let mathArray = ["item", "item"]
+    let parent = document.querySelector('#field');
+    function crateBoom(){
+        for (let i = 1; i <= 9; i++) {
+            let p = document.createElement('p')
+            p.textContent = 'Vote For Nixon!!!!';
+            parent.appendChild(p);
+        }
+    };
+
+</script>
+</html>
